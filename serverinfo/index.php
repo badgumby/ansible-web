@@ -9,12 +9,13 @@
     <tr>
       <td width="20%">
         <div class="navdiv">
-<h3 align="center">Server List</h3>
+<font style="text-align:center;font-size:24px;">Server List</font>
+<hr></hr>
 <table>
 <form action="serverinfo.php" method="post" target="serverinfo" class="formNav">
   <tr>
     <td>
-      <select class="select-css" name="server" id="server" size="10" required="required" onchange="this.form.submit()">
+      <select class="select-css" name="server" id="server" size="20" required="required" onchange="this.form.submit()">
 <?php
 
 $dir = "inventory/";
@@ -30,14 +31,8 @@ foreach ($files as $file) {
       </select>
     </td>
   </tr>
-  <!-- Comment out button as it is handled by Js
-  <tr>
-  <td align="center">
-      <br><input type="submit" value="View Server" class="button">
-    </td>
-  </tr>
--->
 </table>
+<hr></hr>
 </form>
 </div>
 </td>

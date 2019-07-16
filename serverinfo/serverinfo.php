@@ -125,6 +125,7 @@ if ($message) {
   </tr>
 </table>
 <br />
+<br />
 <table class="infoTable">
   <tr>
     <th colspan="2">
@@ -167,6 +168,7 @@ if ($message) {
   }
   ?>
 </table>
+<br />
 <br />
 <table class="infoTable">
   <tr>
@@ -226,6 +228,7 @@ if ($message) {
     </td>
   </tr>
 </table>
+<br />
 <br />
 <table class="infoTable">
   <tr>

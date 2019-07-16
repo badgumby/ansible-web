@@ -40,6 +40,12 @@
   flex-direction: column;
 }
 
+hr {
+  width: 85%;
+  border-width: 3px;
+  border-style: dashed;
+}
+
 h3 {
   font-size: 16px;
   margin: 0px;
@@ -80,7 +86,7 @@ body {
 	margin: 0;
 	border: 1px solid #000000;
 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-	border-radius: .5em;
+	/*border-radius: .5em; */
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
@@ -139,6 +145,7 @@ body {
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;
+  border: 1px solid white;
 }
 
 .infoTable th:first-child {
