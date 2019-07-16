@@ -46,7 +46,7 @@ $procThreads = $serverDecode->ansible_facts->ansible_processor_threads_per_core;
   <div class="sinfodiv">
 <?php
 if ($message) {
-  echo "<h3>$message</h3>";
+  echo "<h3>$serverDisplay</h3>$message";
 } else {
 ?>
 <body class="serverInfoPage">
