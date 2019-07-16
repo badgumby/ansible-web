@@ -23,7 +23,7 @@ $files = array_diff(scandir($dir, 0), array('..','.'));
 foreach ($files as $file) {
   $fileDisplay = str_replace(".json","",$file);
 ?>
-  <option value="<?php echo $file;?>|<?php echo $fileDisplay;?>"><?php echo $fileDisplay;?></option>
+  <option value="<?php echo $file;?>|<?php echo $fileDisplay;?>"><?php echo strtoupper($fileDisplay);?></option>
 <?php
 }
  ?>

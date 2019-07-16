@@ -22,6 +22,7 @@ $loadServer = file_get_contents($filename);
 $serverDecode = json_decode($loadServer);
 
 // Explode file into variables
+$message = $serverDecode->msg;
 $datetime = $serverDecode->ansible_facts->ansible_date_time;
 $hostname = $serverDecode->ansible_facts->ansible_hostname;
 $fqdn = $serverDecode->ansible_facts->ansible_fqdn;
@@ -40,10 +41,17 @@ $procs = $serverDecode->ansible_facts->ansible_processor;
 $procCount = $serverDecode->ansible_facts->ansible_processor_count;
 $procCores = $serverDecode->ansible_facts->ansible_processor_cores;
 $procThreads = $serverDecode->ansible_facts->ansible_processor_threads_per_core;
-
 ?>
 <body class="serverInfoPage">
   <div class="sinfodiv">
+<?php
+if ($message) {
+  echo "<h3>$message</h3>";
+} else {
+?>
+<body class="serverInfoPage">
+  <div class="sinfodiv">
+<?php echo $message;?>
 <table class="infoTable">
   <tr>
     <th colspan="2">
@@ -248,6 +256,7 @@ $procThreads = $serverDecode->ansible_facts->ansible_processor_threads_per_core;
   }
 ?>
 </table>
+<?php } ?>
 </div>
 </body>
 </html>
