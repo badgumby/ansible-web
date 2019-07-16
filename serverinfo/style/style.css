@@ -1,0 +1,231 @@
+.serverInfoPage {
+  background-color: #4278ad;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+}
+
+.placediv {
+  color: #FFFFFF;
+  height: 100%;
+  padding: 5%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+}
+
+.sinfodiv {
+  color: #FFFFFF;
+  height: 100%;
+  /*padding: 5%;*/
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+}
+
+.navdiv {
+  color: #FFFFFF;
+  height: 100%;
+  padding-top: 5%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center; */
+}
+
+.formNav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #4278ad;
+  /*background-color: #4278ad;*/
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  /*background: -webkit-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), -webkit-linear-gradient(108deg, #3ea8dd, #005eb8 90%);
+  background: -moz-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), -moz-linear-gradient(108deg, #3ea8dd, #005eb8 90%);
+  background: -o-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), -o-linear-gradient(108deg, #3ea8dd, #005eb8 90%);
+  background: -ms-radial-gradient(closest-corner, rgba(16, 47, 70, 0) 60%, rgba(16, 47, 70, 0.26)), -ms-linear-gradient(108deg, #3ea8dd, #005eb8 90%);
+  */
+}
+
+.fullpage {
+  width: 100%;
+  height:100%;
+}
+
+.select-css {
+  font-family: 'Roboto', sans-serif;
+	display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 700;
+	color: #365aa0;
+	line-height: 1.3;
+	padding: .6em 1.4em .5em .8em;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #000000;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: .5em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+}
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	border-color: #888;
+}
+.select-css:focus {
+	border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(38, 56, 88, 0.49);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+.select-css option {
+	font-weight:normal;
+}
+.select-css option:checked {
+  color: #FFF;
+}
+
+.iframe-css {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  border:0px;
+  /*border-radius: 5px;
+  border: 2px solid #fff;*/
+}
+
+/*** Table Styles **/
+
+.table-fill {
+  background: white;
+  border-radius:3px;
+  max-height: 320px;
+  margin: auto;
+  max-width: 1024px;
+  padding:3px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+
+.infoTable th {
+  color:#D5DDE5;;
+  background:#2c4e94;
+  font-size:23px;
+  font-weight: 100;
+  padding:24px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+.infoTable th:first-child {
+  border-top-left-radius:3px;
+}
+
+.infoTable th:last-child {
+  border-top-right-radius:3px;
+}
+
+.infoTable tr {
+  border: 1px solid #C1C3D1;
+  color:#365aa0;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+.infoTable tr:hover td {
+  background:#3f60a2;
+  color:#FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
+.infoTable tr:first-child {
+  border: 1px solid #3f60a2;
+}
+
+.infoTable tr:last-child {
+  border: 1px solid #3f60a2;
+}
+
+.infoTable tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+
+.infoTable tr:nth-child(odd):hover td {
+  background:#3f60a2;
+}
+
+.infoTable tr:last-child td:first-child {
+  border-bottom-left-radius:5px;
+}
+
+.infoTable tr:last-child td:last-child {
+  border-bottom-right-radius:5px;
+}
+
+.infoTable td {
+  background:#FFFFFF;
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #C1C3D1;
+}
+
+.infoTable td:first-child {
+  width: 25%;
+}
+
+.infoTable td:last-child {
+  border-right: 0px;
+}
+
+.infoTable th.text-left {
+  text-align: left;
+}
+
+.infoTable th.text-center {
+  text-align: center;
+}
+
+.infoTable th.text-right {
+  text-align: right;
+}
+
+.infoTable td.text-left {
+  text-align: left;
+}
+
+.infoTable td.text-center {
+  text-align: center;
+}
+
+.infoTable td.text-right {
+  text-align: right;
+}
