@@ -22,29 +22,46 @@ $loadServer = file_get_contents($filename);
 $serverDecode = json_decode($loadServer);
 
 // Explode file into variables
-$message = $serverDecode->msg;
-$datetime = $serverDecode->ansible_facts->ansible_date_time;
-$hostname = $serverDecode->ansible_facts->ansible_hostname;
-$fqdn = $serverDecode->ansible_facts->ansible_fqdn;
-$distro = $serverDecode->ansible_facts->ansible_distribution;
-$distroVersion = $serverDecode->ansible_facts->ansible_distribution_version;
-$distroRelease = $serverDecode->ansible_facts->ansible_distribution_release;
-$distroVariety = $serverDecode->ansible_facts->ansible_distribution_file_variety;
-$ipv4 = $serverDecode->ansible_facts->ansible_default_ipv4;
-$ints = $serverDecode->ansible_facts->ansible_interfaces;
-$machineType = $serverDecode->ansible_facts->ansible_architecture;
-$kernel = $serverDecode->ansible_facts->ansible_kernel;
-$memFree = $serverDecode->ansible_facts->ansible_memfree_mb;
-$memTotal = $serverDecode->ansible_facts->ansible_memtotal_mb;
-$mounts = $serverDecode->ansible_facts->ansible_mounts;
-$procs = $serverDecode->ansible_facts->ansible_processor;
-$procCount = $serverDecode->ansible_facts->ansible_processor_count;
-$procCores = $serverDecode->ansible_facts->ansible_processor_cores;
-$procThreads = $serverDecode->ansible_facts->ansible_processor_threads_per_core;
+$plays = $serverDecode->plays[0];
+$tasks = $plays->tasks;
+
 ?>
 <body class="serverInfoPage">
   <div class="sinfodiv">
 <?php
+
+foreach ($tasks as $key => $task) {
+    if ($task->task->name == "gatherall : setup"){
+      $hostSetup = $task->hosts->$serverDisplay;
+      if ($hostSetup->unreachable == true) {
+        $message = $hostSetup->msg;
+      } else {
+      $datetime = $hostSetup->ansible_facts->ansible_date_time;
+      $hostname = $hostSetup->ansible_facts->ansible_hostname;
+      $fqdn = $hostSetup->ansible_facts->ansible_fqdn;
+      $distro = $hostSetup->ansible_facts->ansible_distribution;
+      $distroVersion = $hostSetup->ansible_facts->ansible_distribution_version;
+      $distroRelease = $hostSetup->ansible_facts->ansible_distribution_release;
+      $distroVariety = $hostSetup->ansible_facts->ansible_distribution_file_variety;
+      $ipv4 = $hostSetup->ansible_facts->ansible_default_ipv4;
+      $ints = $hostSetup->ansible_facts->ansible_interfaces;
+      $machineType = $hostSetup->ansible_facts->ansible_architecture;
+      $kernel = $hostSetup->ansible_facts->ansible_kernel;
+      $memFree = $hostSetup->ansible_facts->ansible_memfree_mb;
+      $memTotal = $hostSetup->ansible_facts->ansible_memtotal_mb;
+      $mounts = $hostSetup->ansible_facts->ansible_mounts;
+      $procs = $hostSetup->ansible_facts->ansible_processor;
+      $procCount = $hostSetup->ansible_facts->ansible_processor_count;
+      $procCores = $hostSetup->ansible_facts->ansible_processor_cores;
+      $procThreads = $hostSetup->ansible_facts->ansible_processor_threads_per_core;
+      }
+    } elseif ($task->task->name == "gatherall : uptime"){
+      $hostGather = $task->hosts->$serverDisplay;
+      $uptime = $hostGather->stdout;
+    } else {
+      echo "Info not found.";
+    }
+}
 if ($message) {
   echo "<h3>$serverDisplay</h3>$message";
 } else {
@@ -123,8 +140,17 @@ if ($message) {
       <?php echo $kernel; ?>
     </td>
   </tr>
+  <tr>
+    <td>
+      <b>Uptime</b>
+    </td>
+    <td>
+      <?php echo $uptime; ?>
+    </td>
+  </tr>
 </table>
 <br />
+
 <br />
 <table class="infoTable">
   <tr>
@@ -148,7 +174,7 @@ if ($message) {
     <?php
     foreach ($ints as $int) {
       $aint = "ansible_$int";
-    $intDetails = $serverDecode->ansible_facts->$aint;
+    $intDetails = $hostSetup->ansible_facts->$aint;
     if ($intDetails->active == 1) {
       $intStatus = "Active";
     } else {
@@ -169,6 +195,7 @@ if ($message) {
   ?>
 </table>
 <br />
+
 <br />
 <table class="infoTable">
   <tr>
@@ -229,6 +256,7 @@ if ($message) {
   </tr>
 </table>
 <br />
+
 <br />
 <table class="infoTable">
   <tr>
