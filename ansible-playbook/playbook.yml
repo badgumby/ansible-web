@@ -1,0 +1,14 @@
+---
+- name: Ansible-Web Details
+  hosts: all
+  become: True
+  become_user: root
+
+  gather_facts: false
+  pre_tasks:
+    #- name: Install python for Ansible
+    #  raw: test -e /usr/bin/python || (sudo apt -y update && sudo apt install -y python-minimal)
+    #  changed_when: False
+
+  roles:
+    - gatherall
