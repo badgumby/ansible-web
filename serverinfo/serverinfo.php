@@ -60,10 +60,13 @@ foreach ($tasks as $key => $task) {
       }
     } elseif ($task->task->name == "gatherall : uptime"){
       $uptime = $task->hosts->$serverDisplay->stdout;
+      #$uptime = $hostGather->stdout;
     } elseif ($task->task->name == "gatherall : firewall"){
       $firewall = $task->hosts->$serverDisplay->stdout_lines;
+      #$firewall = $hostFirewall->stdout_lines;
     } elseif ($task->task->name == "gatherall : packages"){
       $packages = $task->hosts->$serverDisplay->ansible_facts->packages;
+      #$packages = $hostPackages->ansible_facts->packages;
     } else {
       echo "Info not found.";
     }
@@ -297,7 +300,7 @@ if ($message) {
 <table class="infoTable">
   <tr>
     <th colspan="2">
-      Firewall Rules <a href="#firewall" class="btn btn-info" data-toggle="collapse">Show/Hide</a>
+      Firewall Rules <a href="#firewall" class="btn-main btn-color" data-toggle="collapse">Show/Hide</a>
     </th>
   </tr>
   <tr>
@@ -308,7 +311,7 @@ if ($message) {
             echo "$line <br />";
           }
         ?>
-        <a href="#firewall" class="btn btn-info" data-toggle="collapse">Show/Hide</a>
+        <a href="#firewall" class="btn-main btn-color" data-toggle="collapse">Show/Hide</a>
       </div>
     </td>
   </tr>
@@ -317,7 +320,7 @@ if ($message) {
 <table class="infoTable">
   <tr>
     <th colspan="2">
-      Applications <a href="#apps" class="btn btn-info" data-toggle="collapse">Show/Hide</a>
+      Applications <a href="#apps" class="btn-main btn-color" data-toggle="collapse">Show/Hide</a>
     </th>
   </tr>
   <tr>
@@ -337,7 +340,7 @@ if ($message) {
           }
         ?>
         </table>
-        <a href="#apps" class="btn btn-info" data-toggle="collapse">Hide</a>
+        <a href="#apps" class="btn-main btn-color" data-toggle="collapse">Hide</a>
       </div>
     </td>
   </tr>

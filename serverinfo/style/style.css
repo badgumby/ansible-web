@@ -40,6 +40,42 @@
   flex-direction: column;
 }
 
+.btn-main {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-main:hover{
+  background-color: #3a65bd;
+}
+
+.btn-color {
+  background-color: #3557a7;
+  color: #FFF;
+  border-color: #FFF;
+}
+
+.btn-color:hover {
+  color: #FFF;
+}
+
 hr {
   width: 85%;
   border-width: 3px;
