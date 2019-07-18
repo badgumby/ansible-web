@@ -22,3 +22,6 @@ bin_ansible_callbacks = True
 
 ###### inventory.lst
 >List of servers that `gather-playbook.sh` uses to gather info (one per line).
+
+## Known Issues
+ - Package gathering (`package_facts`) is not working on Ubuntu 18.04 Server.
