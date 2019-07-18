@@ -13,6 +13,9 @@ $serverDisplay = $serverInfo_explode[1];
 <head>
   <link rel = "stylesheet" type = "text/css" href = "style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <title><?php echo $serverDisplay; ?> - Server Info</title>
 </head>
 <?php
@@ -56,8 +59,11 @@ foreach ($tasks as $key => $task) {
       $procThreads = $hostSetup->ansible_facts->ansible_processor_threads_per_core;
       }
     } elseif ($task->task->name == "gatherall : uptime"){
-      $hostGather = $task->hosts->$serverDisplay;
-      $uptime = $hostGather->stdout;
+      $uptime = $task->hosts->$serverDisplay->stdout;
+    } elseif ($task->task->name == "gatherall : firewall"){
+      $firewall = $task->hosts->$serverDisplay->stdout_lines;
+    } elseif ($task->task->name == "gatherall : packages"){
+      $packages = $task->hosts->$serverDisplay->ansible_facts->packages;
     } else {
       echo "Info not found.";
     }
@@ -256,7 +262,6 @@ if ($message) {
   </tr>
 </table>
 <br />
-
 <br />
 <table class="infoTable">
   <tr>
@@ -287,6 +292,57 @@ if ($message) {
   }
 ?>
 </table>
+<br />
+<br />
+<table class="infoTable">
+  <tr>
+    <th colspan="2">
+      Firewall Rules <a href="#firewall" class="btn btn-info" data-toggle="collapse">Show/Hide</a>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <div id="firewall" class="collapse">
+        <?php
+          foreach ($firewall as $line) {
+            echo "$line <br />";
+          }
+        ?>
+        <a href="#firewall" class="btn btn-info" data-toggle="collapse">Show/Hide</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<br /><br />
+<table class="infoTable">
+  <tr>
+    <th colspan="2">
+      Applications <a href="#apps" class="btn btn-info" data-toggle="collapse">Show/Hide</a>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <div id="apps" class="collapse">
+        <table class='detailsTable'>
+        <?php
+          foreach ($packages as $package) {
+            foreach ($package as $detail){
+              echo "<tr width='100%'><td width='50%'>";
+              echo "$detail->name";
+              echo "</td><td width='50%'>";
+              echo "$detail->version<br />";
+              echo "$detail->arch";
+              echo "</td></tr>";
+            }
+          }
+        ?>
+        </table>
+        <a href="#apps" class="btn btn-info" data-toggle="collapse">Hide</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<br /><br />
 <?php } ?>
 </div>
 </body>

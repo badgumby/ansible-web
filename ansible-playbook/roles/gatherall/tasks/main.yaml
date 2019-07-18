@@ -2,4 +2,11 @@
 - setup:
 
 - name: uptime
-  command: uptime
+  command: uptime -p
+
+- name: firewall
+  command: iptables -nL
+
+- name: packages
+  package_facts:
+    manager: auto
