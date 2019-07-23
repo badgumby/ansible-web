@@ -290,7 +290,7 @@ body {
 }
 
 /* Searchable table */
-#searchInput {
+.searchInput {
   background-image: url('/style/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
@@ -301,22 +301,31 @@ body {
   margin-bottom: 12px;
 }
 
-#searchTable {
+.searchTable {
   border-collapse: collapse;
   width: 100%;
   border: 1px solid #ddd;
   font-size: 18px;
 }
 
-#searchTable th, #searchTable td {
+.searchTable th {
   text-align: left;
   padding: 12px;
+  background-color: #EBEBEB;
+  border: 1px solid #C1C3D1;
+  color: #2c4e94;
 }
 
-#searchTable tr {
+.searchTable td {
+  text-align: left;
+  padding: 12px;
+  background-color: #FFF;
+}
+
+.searchTable tr {
   border-bottom: 1px solid #ddd;
 }
 
-#searchTable tr.header, #searchTable tr:hover {
+.searchTable tr.header, .searchTable tr:hover {
   background-color: #f1f1f1;
 }

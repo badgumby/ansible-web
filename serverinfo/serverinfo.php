@@ -346,8 +346,16 @@ if ($message) {
   <tr>
     <td>
       <div id="apps" class="divCenter collapse">
-        <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for packages.." title="Type in a package name">
-        <table id='searchTable'>
+        <input type="text" class="searchInput" id="searchInput" onkeyup="searchFunction()" placeholder="Search for packages.." title="Type in a package name">
+        <table id='searchTable' class="searchTable">
+          <tr class="header">
+            <th>
+              Package Name
+            </th>
+            <th>
+              Details
+            </th>
+          </tr>
         <?php
           foreach ($packages as $package) {
             foreach ($package as $detail){
