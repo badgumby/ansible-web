@@ -10,7 +10,8 @@ echo -e "\nGathering info..."
 
 while IFS="" read -r p || [ -n "$p" ]
 do
+  host=$(echo "$p" | tr '[a-z]' '[A-Z]')
   printf '\n'
-  printf '%s\n' "Collecting from $p..."
-ansible-playbook -i $p, -u $USERNAME --extra-vars "ansible_password=$PASSWORD ansible_become_password=$PASSWORD" playbook.yml > /srv/serverinfo/inventory/$p.json
+  printf '%s\n' "Collecting from $host..."
+ansible-playbook -i $host, -u $USERNAME --extra-vars "ansible_password=$PASSWORD ansible_become_password=$PASSWORD" playbook.yml > /srv/serverinfo/inventory/$host.json
 done < inventory.lst
