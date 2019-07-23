@@ -10,7 +10,6 @@
       <td width="20%">
         <div class="navdiv">
 <font style="text-align:center;font-size:24px;">Server List</font>
-<hr></hr>
 <table>
 <form action="serverinfo.php" method="post" target="serverinfo" class="formNav">
   <tr>
@@ -32,7 +31,6 @@ foreach ($files as $file) {
     </td>
   </tr>
 </table>
-<hr></hr>
 </form>
 </div>
 </td>

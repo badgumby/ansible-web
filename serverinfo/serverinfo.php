@@ -76,6 +76,26 @@ if ($message) {
 } else {
 ?>
 <body class="serverInfoPage">
+  <script>
+    function searchFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("searchTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+</script>
   <div class="sinfodiv">
 <?php echo $message;?>
 <table class="infoTable">
@@ -325,21 +345,23 @@ if ($message) {
   </tr>
   <tr>
     <td>
-      <div id="apps" class="collapse">
-        <table class='detailsTable'>
+      <div id="apps" class="divCenter collapse">
+        <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for packages.." title="Type in a package name">
+        <table id='searchTable'>
         <?php
           foreach ($packages as $package) {
             foreach ($package as $detail){
-              echo "<tr width='100%'><td width='50%'>";
+              echo "<tr><td>";
               echo "$detail->name";
-              echo "</td><td width='50%'>";
-              echo "$detail->version<br />";
-              echo "$detail->arch";
+              echo "</td><td>";
+              echo "Version: $detail->version<br />";
+              echo "Architecture: $detail->arch";
               echo "</td></tr>";
             }
           }
         ?>
         </table>
+
         <a href="#apps" class="btn-main btn-color" data-toggle="collapse">Hide</a>
       </div>
     </td>
