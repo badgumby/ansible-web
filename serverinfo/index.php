@@ -5,16 +5,9 @@
   <title>Server List</title>
 </head>
 <body>
-  <table class="fullpage">
-    <tr>
-      <td width="20%">
-        <div class="navdiv">
-<font style="text-align:center;font-size:24px;">Server List</font>
-<table>
+  <div class="navdiv">
 <form action="serverinfo.php" method="post" target="serverinfo" class="formNav">
-  <tr>
-    <td>
-      <select class="select-css" name="server" id="server" size="20" required="required" onchange="this.form.submit()">
+  <select class="select-css" name="server" id="server" size="20" required="required" onchange="this.form.submit()">
 <?php
 
 $dir = "inventory/";
@@ -27,17 +20,13 @@ foreach ($files as $file) {
 <?php
 }
  ?>
-      </select>
-    </td>
-  </tr>
-</table>
+  </select>
 </form>
 </div>
-</td>
-<td width="80%">
-<iframe name="serverinfo" class="iframe-css" src="placeholder.html"></iframe>
-</td>
-</tr>
-</table>
+
+  <div class="serverInfoDiv">
+    <iframe name="serverinfo" class="iframe-css" src="placeholder.html"></iframe>
+  </div>
+
 </body>
 </html>
