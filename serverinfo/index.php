@@ -1,11 +1,14 @@
 <html>
 <head>
   <link rel = "stylesheet" type = "text/css" href = "style/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Roboto&display=swap" rel="stylesheet">
   <title>Server List</title>
 </head>
 <body>
   <div class="navdiv">
+    <div class="navTitle">
+      Server List
+    </div>
 <form action="serverinfo.php" method="post" target="serverinfo" class="formNav">
   <select class="select-css" name="server" id="server" size="20" required="required" onchange="this.form.submit()">
 <?php

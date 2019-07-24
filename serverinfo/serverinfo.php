@@ -100,8 +100,8 @@ if ($message) {
 <?php echo $message;?>
 <table class="infoTable">
   <tr>
-    <th colspan="2">
-      <?php echo strtoupper($hostname); ?><br />
+    <th colspan="2"><div class="headerTitle">
+      <?php echo strtoupper($hostname); ?></div>
       <font style="font-size:14;"><i>Data was collected on <?php echo "$datetime->date at $datetime->time $datetime->tz"; ?></i></font>
     </th>
   </tr>
@@ -184,7 +184,9 @@ if ($message) {
 <table class="infoTable">
   <tr>
     <th colspan="2">
-      Network Info
+      <div class="headerTitle">
+        Network Info
+      </div>
     </th>
   </tr>
   <tr>
@@ -229,7 +231,9 @@ if ($message) {
 <table class="infoTable">
   <tr>
     <th colspan="2">
-      Processor/Memory Info
+      <div class="headerTitle">
+        Processor/Memory Info
+      </div>
     </th>
   </tr>
   <tr>
@@ -289,7 +293,9 @@ if ($message) {
 <table class="infoTable">
   <tr>
     <th colspan="2">
-      Disk Info
+      <div class="headerTitle">
+        Disk Info
+      </div>
     </th>
   </tr>
 <?php
@@ -320,7 +326,9 @@ if ($message) {
 <table class="infoTable">
   <tr>
     <th colspan="2">
-      Firewall Rules <a href="#firewall" class="btn-main btn-color" data-toggle="collapse">Show/Hide</a>
+      <div class="headerTitle">
+        Firewall Rules <a href="#firewall" class="btn-main btn-color" data-toggle="collapse">Show/Hide</a>
+      </div>
     </th>
   </tr>
   <tr>
@@ -340,7 +348,9 @@ if ($message) {
 <table class="infoTable">
   <tr>
     <th colspan="2">
-      Applications <a href="#apps" class="btn-main btn-color" data-toggle="collapse">Show/Hide</a>
+      <div class="headerTitle">
+        Applications <a href="#apps" class="btn-main btn-color" data-toggle="collapse">Show/Hide</a>
+      </div>
     </th>
   </tr>
   <tr>
