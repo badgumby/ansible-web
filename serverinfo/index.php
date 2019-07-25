@@ -28,7 +28,7 @@ foreach ($files as $file) {
 </div>
 
   <div class="serverInfoDiv">
-    <iframe name="serverinfo" class="iframe-css" src="placeholder.html"></iframe>
+    <iframe name="serverinfo" class="iframe-css" src="placeholder.php"></iframe>
   </div>
 
 </body>
