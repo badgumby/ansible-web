@@ -393,6 +393,30 @@ if ($message) {
 </table>
 <br /><br />
 <?php } ?>
+<table class="infoTable">
+  <tr>
+    <th colspan="2">
+      <div class="headerTitle">
+        Management
+      </div>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      Delete Server File
+    </td>
+    <td>
+      <form action="delete-server.php" method="post" onsubmit="return confirm('Are you sure you want to delete this file?');" class="formDel" name="deleteServer" id="deleteServer">
+        <input type="text" name="filename" value="<?php echo $filename; ?>" hidden>
+        <input type="text" name="hostname" value="<?php echo $hostname; ?>" hidden>
+        <input type="submit" value="Delete <?php echo strtoupper($hostname); ?>">
+      </form>
+      <b>Note:</b> This will only remove the collected details file.
+      To remove it from future scans, be sure to remove it from the <i>inventory.lst</i>
+    </td>
+  </tr>
+</table>
+<br />
 </div>
 </body>
 </html>
