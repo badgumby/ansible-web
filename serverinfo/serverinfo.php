@@ -72,7 +72,13 @@ foreach ($tasks as $key => $task) {
     }
 }
 if ($message) {
-  echo "<h3>$serverDisplay</h3>$message";
+  ?>
+  <div class="placediv">
+  <?php
+  echo "$serverDisplay<h3>$message</h3>";
+  ?>
+  </div>
+  <?php
 } else {
 ?>
 <body class="serverInfoPage">

@@ -13,5 +13,8 @@ do
   host=$(echo "$p" | tr '[a-z]' '[A-Z]')
   printf '\n'
   printf '%s\n' "Collecting from $host..."
-ansible-playbook -i $host, -u $USERNAME --extra-vars "ansible_password=$PASSWORD ansible_become_password=$PASSWORD" playbook.yml > /srv/serverinfo/inventory/$host.json
+  # Remove port from filename
+  shortname=$(echo "$host" | awk -F: '{print $1}')
+  printf '%s\n' "Filename: $shortname"
+ansible-playbook -i $host, -u $USERNAME --extra-vars "ansible_password=$PASSWORD ansible_become_password=$PASSWORD" playbook.yml > /srv/serverinfo/inventory/$shortname.json
 done < inventory.lst

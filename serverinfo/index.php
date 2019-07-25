@@ -1,3 +1,7 @@
+<?php
+$dir = "inventory/";
+$files = array_diff(scandir($dir, 0), array('..','.'));
+?>
 <html>
 <head>
   <link rel = "stylesheet" type = "text/css" href = "style/style.css">
@@ -7,15 +11,11 @@
 <body>
   <div class="navdiv">
     <div class="navTitle">
-      Server List
+      Server List (<?php echo count($files);?>)
     </div>
 <form action="serverinfo.php" method="post" target="serverinfo" class="formNav">
   <select class="select-css" name="server" id="server" size="20" required="required" onchange="this.form.submit()">
 <?php
-
-$dir = "inventory/";
-$files = array_diff(scandir($dir, 0), array('..','.'));
-
 foreach ($files as $file) {
   $fileDisplay = str_replace(".json","",$file);
 ?>
