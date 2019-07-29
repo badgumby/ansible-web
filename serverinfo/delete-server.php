@@ -11,7 +11,6 @@ $hostname = htmlspecialchars($_POST['hostname']);
   <body>
     <div class="placediv">
 <?php
-
 try {
   unlink($filename);
   echo strtoupper($hostname) . " has been deleted.";
